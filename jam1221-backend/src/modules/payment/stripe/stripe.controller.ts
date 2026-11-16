@@ -127,7 +127,7 @@ export class StripeController {
       return {
         success: true,
         isAdmin: true,
-        url: `${process.env.CLIENT_APP_URL || 'http://localhost:3000'}/theory-quiz`,
+        url: `${process.env.CLIENT_APP_URL || process.env.FRONTEND_URL || 'http://localhost:3000'}/theory-quiz`,
         message: 'Admin har redan fullständig och obegränsad tillgång.',
       };
     }

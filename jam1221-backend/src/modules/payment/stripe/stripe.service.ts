@@ -236,7 +236,7 @@ export class StripeService {
 
   // 2. Skapar checkout-session
   async createCheckoutSession(priceId: string, userId: string) {
-    const clientAppUrl = process.env.CLIENT_APP_URL || 'http://localhost:3000';
+    const clientAppUrl = process.env.CLIENT_APP_URL || process.env.FRONTEND_URL || 'http://localhost:3000';
     const session = await this.stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [
@@ -260,9 +260,10 @@ export class StripeService {
 
   // 4. Skapar portal-session
   async createBillingPortalSession(customerId: string) {
+    const clientAppUrl = process.env.CLIENT_APP_URL || process.env.FRONTEND_URL || 'http://localhost:3000';
     const portalSession = await this.stripe.billingPortal.sessions.create({
       customer: customerId,
-      return_url: `${process.env.CLIENT_APP_URL}/subcription`,
+      return_url: `${clientAppUrl}/subscription`,
     });
     return portalSession;
   }
