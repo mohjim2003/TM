@@ -5,7 +5,7 @@
  *   Uses the Vercel internal service binding `BACKEND_URL` injected by vercel.json.
  * - In the browser:
  *   Defaults to "" (same-origin relative path) so requests route seamlessly
- *   through Vercel's top-level rewrite `/api/(.*) -> jam1221-backend`.
+ *   through Vercel's top-level rewrite `/api/(.*) -> backend`.
  * - Standalone local development fallback:
  *   Uses NEXT_PUBLIC_API_URL or http://localhost:4000 when running Next.js without vercel dev.
  */

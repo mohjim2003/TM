@@ -13,27 +13,29 @@ Modern, kostnadsfri plattform för körkortsteori och slutprovssimulering i Sver
 
 ## Projektstruktur
 
-- **`jam1e21/`** — Frontend (Next.js 15, React 19, Tailwind CSS 4, Radix UI, Lucide Icons)
-- **`jam1221-backend/`** — Backend API (NestJS, Prisma ORM, Neon PostgreSQL)
+- **`frontend/`** — Frontend (Next.js 15, React 19, Tailwind CSS 4, Radix UI, Lucide Icons)
+- **`backend/`** — Backend API (NestJS, Prisma ORM, Neon PostgreSQL)
 
 ## Kom igång lokalt
 
-### Frontend (`jam1e21`)
+### Frontend (`frontend`)
 ```bash
-cd jam1e21
+cd frontend
 npm install
 npm run dev
 ```
 Öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
 
-### Backend (`jam1221-backend`)
+### Backend (`backend`)
 ```bash
-cd jam1221-backend
+cd backend
 npm install
 npm run dev
 ```
 
-## Distribution (Deployment)
+## Distribution (Vercel Services)
 
-- **Frontend (Vercel):** Importera detta GitHub-repo till Vercel och ange **Root Directory** till `jam1e21`. Lägg till miljövariablerna `GEMINI_API_KEY` och `NEXT_PUBLIC_API_URL`.
-- **Backend (Render / Railway):** Distribuera `jam1221-backend` som en Node.js-tjänst med anslutning till PostgreSQL.
+Projektet är konfigurerat för **Vercel Services** med gemensam domän via [`vercel.json`](./vercel.json):
+- **`frontend`** hanterar Next.js webbsidor och Next API routes (`/api/quiz-explanation`, `/api/quiz-translate`).
+- **`backend`** hanterar alla NestJS backend-endpoints (`/api/(.*)`).
+- Interna service-bindings injicerar `BACKEND_URL` i frontend och `FRONTEND_URL` i backend.

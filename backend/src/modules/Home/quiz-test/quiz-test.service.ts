@@ -145,7 +145,7 @@ export class QuizTestService {
       const candidates = [
         path.resolve(process.cwd(), 'src', 'data', 'questionData.json'),
         path.resolve(process.cwd(), 'dist', 'data', 'questionData.json'),
-        path.resolve(process.cwd(), '..', 'jam1e21', 'public', 'questionData.json'),
+        path.resolve(process.cwd(), '..', 'frontend', 'public', 'questionData.json'),
       ];
 
       let rawQuestions: any[] = [];

@@ -1,25 +1,25 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
-    "jam1e21": {
-      "root": "jam1e21",
+    "frontend": {
+      "root": "frontend",
       "framework": "nextjs",
       "bindings": [
         {
           "type": "service",
-          "service": "jam1221-backend",
+          "service": "backend",
           "format": "url",
           "env": "BACKEND_URL"
         }
       ]
     },
-    "jam1221-backend": {
-      "root": "jam1221-backend",
+    "backend": {
+      "root": "backend",
       "framework": "nestjs",
       "bindings": [
         {
           "type": "service",
-          "service": "jam1e21",
+          "service": "frontend",
           "format": "url",
           "env": "FRONTEND_URL"
         }
@@ -29,19 +29,19 @@
   "rewrites": [
     {
       "source": "/api/quiz-explanation",
-      "destination": { "service": "jam1e21" }
+      "destination": { "service": "frontend" }
     },
     {
       "source": "/api/quiz-translate",
-      "destination": { "service": "jam1e21" }
+      "destination": { "service": "frontend" }
     },
     {
       "source": "/api/(.*)",
-      "destination": { "service": "jam1221-backend" }
+      "destination": { "service": "backend" }
     },
     {
       "source": "/(.*)",
-      "destination": { "service": "jam1e21" }
+      "destination": { "service": "frontend" }
     }
   ]
 }

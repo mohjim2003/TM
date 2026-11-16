@@ -12,7 +12,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 async function laddaMeraFrigor() {
   // Sökväg direkt till din questionData.json i frontend
-  const filSokvag = path.resolve(process.cwd(), "..", "jam1e21", "public", "questionData.json");
+  const filSokvag = path.resolve(process.cwd(), "..", "frontend", "public", "questionData.json");
   let existerandeFrigor = [];
 
   // 1. Läs in frågorna från din questionData.json
